@@ -1,3 +1,15 @@
+# Machine-local project configuration (see column_config.py)
+.econetmap_workspace
+settings.txt
+
+# Python
+__pycache__/
+*.pyc
+
+# Cached basemap tiles (contextily), regenerated automatically at runtime
+map_cache/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
