@@ -1,6 +1,7 @@
 # EcoNetMap
 A network-based analytical framework that translates plant species co-occurrence data into a visual reference landscape where species and their assemblages can be explored, compared, and monitored
 
+> **Published version:** The method and application are described in Skov (2026), *Journal of Vegetation Science*, https://doi.org/10.1111/jvs.70182. The code as described in the paper is preserved as release [v1.05](https://github.com/flemmingskov/ecoNetMap_JVS/releases/tag/v1.05). Later versions on the `main` branch may contain further developments; see the release notes for changes.
 
 # EcoNetMap – Ecological Network Mapping Toolkit
 
@@ -216,7 +217,7 @@ These datasets informed design decisions throughout, but all components of EcoNe
 
 ## Contributing
 
-Contributions, issues, and suggestions are welcome on the [GitHub repository](https://github.com/flemmingskov/EcoNetMap).
+Contributions, issues, and suggestions are welcome on the [GitHub repository](https://github.com/flemmingskov/ecoNetMap_JVS).
 
 ---
 
@@ -233,9 +234,9 @@ Contributions, issues, and suggestions are welcome on the [GitHub repository](ht
 
 If you use EcoNetMap in your research, please cite:
 
-> Skov, F. (2026). EcoNetMap: Network-based ecological cartography for vegetation analysis. Aarhus University. https://github.com/flemmingskov/ecoNetMap_JVS
+> Skov, F. (2026). Ecological Cartography: Constructing Plant Species Reference Landscapes From Co-Occurrence Networks. *Journal of Vegetation Science*. https://doi.org/10.1111/jvs.70182
 
-*Manuscript in preparation for Journal of Vegetation Science.*
+The software itself is available at https://github.com/flemmingskov/ecoNetMap_JVS. The version described in the paper is release v1.05.
 
 ---
 

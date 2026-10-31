@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use EcoNetMap in your research, please cite the article below."
+title: "EcoNetMap: Ecological Network Mapping Toolkit"
+type: software
+authors:
+  - family-names: Skov
+    given-names: Flemming
+    email: fs@ecos.au.dk
+    affiliation: Aarhus University
+repository-code: "https://github.com/flemmingskov/ecoNetMap_JVS"
+license: MIT
+version: "1.05"
+keywords:
+  - vegetation ecology
+  - co-occurrence networks
+  - ecological cartography
+  - Jaccard similarity
+  - Streamlit
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Skov
+      given-names: Flemming
+      affiliation: Aarhus University
+  title: "Ecological Cartography: Constructing Plant Species Reference Landscapes From Co-Occurrence Networks"
+  journal: "Journal of Vegetation Science"
+  year: 2026
+  doi: "10.1111/jvs.70182"
