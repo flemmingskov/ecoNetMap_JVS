@@ -1,7 +1,7 @@
 # EcoNetMap
 A network-based analytical framework that translates plant species co-occurrence data into a visual reference landscape where species and their assemblages can be explored, compared, and monitored
 
-> **Published version:** The method and application are described in Skov (2026), *Journal of Vegetation Science*, https://doi.org/10.1111/jvs.70182. Release [v1.05](https://github.com/flemmingskov/ecoNetMap_JVS/releases/tag/v1.05) (archived on Zenodo: https://doi.org/10.5281/zenodo.23841431) is the version archived with the paper. It chooses the anchor species for rare species differently from the run that produced the published reference map; release v1.06 corrects this and reproduces the published map. See [Notes on the published paper](#notes-on-the-published-paper-v106). Later versions on the `main` branch may contain further developments; see the release notes for changes.
+> **Published version:** The method and application are described in Skov (2026), *Journal of Vegetation Science*, https://doi.org/10.1111/jvs.70182. Release [v1.05](https://github.com/flemmingskov/ecoNetMap_JVS/releases/tag/v1.05) (archived on Zenodo: https://doi.org/10.5281/zenodo.23841431) is the version archived with the paper. It chooses the anchor species for rare species differently from the run that produced the published reference map; release [v1.06](https://github.com/flemmingskov/ecoNetMap_JVS/releases/tag/v1.06) (Zenodo: https://doi.org/10.5281/zenodo.23864507) corrects this and reproduces the published map. See [Notes on the published paper](#notes-on-the-published-paper-v106). Later versions on the `main` branch may contain further developments; see the release notes for changes.
 
 # EcoNetMap – Ecological Network Mapping Toolkit
 
@@ -260,7 +260,9 @@ The software itself is available at https://github.com/flemmingskov/ecoNetMap_JV
 
 All archived versions: https://doi.org/10.5281/zenodo.23841430
 
-Release v1.06 corrects the rare-species anchor selection so that the code reproduces the published reference map (see [Notes on the published paper](#notes-on-the-published-paper-v106)).
+Release v1.06 corrects the rare-species anchor selection so that the code reproduces the published reference map (see [Notes on the published paper](#notes-on-the-published-paper-v106)):
+
+> Skov, F. (2026). EcoNetMap v1.06 [Software]. Zenodo. https://doi.org/10.5281/zenodo.23864507
 
 ---
 

@@ -18,6 +18,9 @@ identifiers:
   - type: doi
     value: "10.5281/zenodo.23841431"
     description: "Version 1.05, archived with the paper"
+  - type: doi
+    value: "10.5281/zenodo.23864507"
+    description: "Version 1.06, rare-species anchors as in the published map"
 keywords:
   - vegetation ecology
   - co-occurrence networks
