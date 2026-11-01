@@ -9,7 +9,7 @@ authors:
     affiliation: Aarhus University
 repository-code: "https://github.com/flemmingskov/ecoNetMap_JVS"
 license: MIT
-version: "1.05"
+version: "1.06"
 doi: "10.5281/zenodo.23841430"
 identifiers:
   - type: doi
@@ -17,7 +17,7 @@ identifiers:
     description: "Concept DOI (all versions) on Zenodo"
   - type: doi
     value: "10.5281/zenodo.23841431"
-    description: "Version 1.05, described in the paper"
+    description: "Version 1.05, archived with the paper"
 keywords:
   - vegetation ecology
   - co-occurrence networks

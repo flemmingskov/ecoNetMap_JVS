@@ -38,7 +38,7 @@ from column_config import (
 # App info - permanent in the script
 APP_INFO = {
     'title': 'EcoNetMap - Ecological Network Mapping Toolkit',
-    'version': '1.05',
+    'version': '1.06',
     'author': 'Flemming Skov',
     'email': 'fs@ecos.au.dk',
     'github_url': 'https://github.com/flemmingskov/EcoNetMap'

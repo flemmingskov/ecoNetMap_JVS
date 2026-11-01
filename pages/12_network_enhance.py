@@ -277,8 +277,8 @@ def assign_coordinates_to_species(species_key_value,
     if len(species_plots) == 0:
         return {'success': False, 'reason': 'No occurrence data'}
 
-    # Use mahal_dist if available (ecologically meaningful); fall back to geometric distance
-    dist_col = 'mahal_dist' if 'mahal_dist' in reference_coords.columns else 'distance'
+    # Use geometric distance from map centre (0.5, 0.5), as in the published map
+    dist_col = 'distance'
 
     # Calculate distance threshold based on percentile
     distance_threshold = reference_coords[dist_col].quantile(distance_percentile)
@@ -365,9 +365,9 @@ def create_comparison_plot(reference_coords: pd.DataFrame,
     """Create visualization of reference species and new assignments"""
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 8))
 
-    # Use mahal_dist if available, fall back to geometric distance
-    dist_col = 'mahal_dist' if 'mahal_dist' in reference_coords.columns else 'distance'
-    dist_label = 'Mahalanobis Distance' if dist_col == 'mahal_dist' else 'Distance from Center'
+    # Use geometric distance from map centre (0.5, 0.5)
+    dist_col = 'distance'
+    dist_label = 'Distance from Center'
 
     # Normalise for marker sizing (both columns have different scales)
     dist_max = reference_coords[dist_col].max()
@@ -765,15 +765,14 @@ with tab2:
             # Show what this means
             if st.session_state.ref_coords is not None:
                 _rc = st.session_state.ref_coords
-                _dist_col = 'mahal_dist' if 'mahal_dist' in _rc.columns else 'distance'
+                _dist_col = 'distance'
                 threshold = _rc[_dist_col].quantile(distance_percentile)
                 core_count = (_rc[_dist_col] >= threshold).sum()
                 total_count = len(_rc)
                 pct_used = (core_count / total_count) * 100
-                _dist_label = 'Mahalanobis' if _dist_col == 'mahal_dist' else 'Distance'
 
                 st.caption(f"💡 {core_count:,}/{total_count:,} species ({pct_used:.0f}%) will be used as references")
-                st.caption(f"📏 {_dist_label} threshold: {threshold:.3f}")
+                st.caption(f"📏 Distance threshold: {threshold:.3f}")
         
         with col2:
             st.markdown("**Jaccard Filtering:**")
@@ -828,8 +827,8 @@ with tab2:
             # Show distance distribution
             with st.spinner("Analyzing species distribution..."):
                 ref_coords = st.session_state.ref_coords
-                _dist_col = 'mahal_dist' if 'mahal_dist' in ref_coords.columns else 'distance'
-                _dist_label = 'Mahalanobis Distance from Density Centre' if _dist_col == 'mahal_dist' else 'Distance from Center (0=center, ~0.7=edge)'
+                _dist_col = 'distance'
+                _dist_label = 'Distance from Map Center (0=center, ~0.7=edge)'
                 threshold = ref_coords[_dist_col].quantile(distance_percentile)
 
                 fig, ax = plt.subplots(figsize=(10, 4))

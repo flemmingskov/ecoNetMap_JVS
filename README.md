@@ -1,7 +1,7 @@
 # EcoNetMap
 A network-based analytical framework that translates plant species co-occurrence data into a visual reference landscape where species and their assemblages can be explored, compared, and monitored
 
-> **Published version:** The method and application are described in Skov (2026), *Journal of Vegetation Science*, https://doi.org/10.1111/jvs.70182. The code as described in the paper is preserved as release [v1.05](https://github.com/flemmingskov/ecoNetMap_JVS/releases/tag/v1.05) (archived on Zenodo: https://doi.org/10.5281/zenodo.23841431). Later versions on the `main` branch may contain further developments; see the release notes for changes.
+> **Published version:** The method and application are described in Skov (2026), *Journal of Vegetation Science*, https://doi.org/10.1111/jvs.70182. Release [v1.05](https://github.com/flemmingskov/ecoNetMap_JVS/releases/tag/v1.05) (archived on Zenodo: https://doi.org/10.5281/zenodo.23841431) is the version archived with the paper. It chooses the anchor species for rare species differently from the run that produced the published reference map; release v1.06 corrects this and reproduces the published map. See [Notes on the published paper](#notes-on-the-published-paper-v106). Later versions on the `main` branch may contain further developments; see the release notes for changes.
 
 # EcoNetMap – Ecological Network Mapping Toolkit
 
@@ -230,6 +230,24 @@ Contributions, issues, and suggestions are welcome on the [GitHub repository](ht
 
 ---
 
+## Notes on the published paper (v1.06)
+
+**Rare-species anchors.** Species below the network's minimum-occurrence threshold are placed on the map as the Jaccard-weighted mean of the positions of up to ten core species (anchors). In the run that produced the published reference map, the candidate anchors were the 30% of core species farthest from the map centre (0.5, 0.5). Release v1.05 instead chose the candidates by Mahalanobis distance from the weighted-degree centroid. On the paper's data (387 sub-threshold species), v1.05 therefore places 108 species instead of 200, and 120 of the published 200 are not placed. v1.06 uses the distance from the map centre again and reproduces the published positions from the paper's data (to within rounding, 2.2e-16).
+
+**Step 5 as implemented.** The paper (main text and Appendix S1) describes the position of a sub-threshold species as the Jaccard-weighted mean of all its core associates, and states that species with fewer than five core associations are excluded. The code (v1.06, and the run behind the published map) works as follows:
+
+> Sub-threshold species are positioned as the Jaccard-weighted mean of the coordinates of up to ten core species with which they share the highest Jaccard similarity (J ≥ 0.025). Candidate anchors are restricted to the 30% of core species farthest from the map centre (0.5, 0.5), so that rare specialists are not drawn towards the generalist-dominated centre. Of 387 sub-threshold species, 200 had at least one qualifying anchor and were positioned; the remaining 187 were not mapped.
+
+There is no minimum of five associations: one anchor is enough (88 of the 200 placed species have one). Accordingly, the anchors in Figure 4 of Appendix S1 are the outer species beyond the threshold, with distance measured from the map centre, not the central species and not the ecological centroid.
+
+**Other details**
+- The optional jitter resets the random seed for every species, so all rare species are shifted by the same small offset (about +0.005, −0.001) rather than by individual random offsets. It is unchanged in v1.06, as the published map was made with it.
+- Section 2.5 describes the Mahalanobis centroid as occurrence-weighted; the code weights it by weighted degree (occurrence count only as a fallback). As the paper states, the Mahalanobis distance is computed but not analysed further.
+- Step 4: the radial expansion preserves the rank order of the distances from the centre, not of all pairwise distances.
+- Rebuilding the reference map from the paper's data with the stored settings gives the same network (819 species, 126,912 links) and network measures, but the Fruchterman–Reingold layout reproduces only approximately (median shift about 0.01 of the map width), probably because the links were added to the graph in a different order. Leiden and Louvain communities are not seeded, so the community assignment can differ slightly between runs.
+
+---
+
 ## Citation
 
 If you use EcoNetMap in your research, please cite:
@@ -241,6 +259,8 @@ The software itself is available at https://github.com/flemmingskov/ecoNetMap_JV
 > Skov, F. (2026). EcoNetMap v1.05 [Software]. Zenodo. https://doi.org/10.5281/zenodo.23841431
 
 All archived versions: https://doi.org/10.5281/zenodo.23841430
+
+Release v1.06 corrects the rare-species anchor selection so that the code reproduces the published reference map (see [Notes on the published paper](#notes-on-the-published-paper-v106)).
 
 ---
 
@@ -258,5 +278,5 @@ MIT License — see LICENSE file for details.
 
 ---
 
-**Version:** 1.05
-**Last updated:** July 2026
+**Version:** 1.06
+**Last updated:** November 2026
